@@ -126,7 +126,8 @@ int FloatPoint::init() {
 int FloatPoint::getNextToken(std::string& token) {
 	int res = 0;
 	int _input_len = _input_str.length();
-	while (ptr < _input_len) {
+	//最后一个字符为\0，不在字符集中，所以一定会进入到9或8状态
+	while (ptr <= _input_len) {
 		if (_state == 8) {
 			res = getCurToken(token);
 			restoreAutonmata();//恢复自动机为初始状态
@@ -139,11 +140,6 @@ int FloatPoint::getNextToken(std::string& token) {
 
 		char ch = '\0';
 		res = getChar(&ch);
-		if (res == -1) {
-			getCurToken(token);
-			restoreAutonmata();//恢复自动机为初始状态
-			break;
-		}
 
 		//开始状态特殊处理， 非数字、加减号进入不了状态机
 		if(_state == 0 && !isDigit(ch) && ch!='+' && ch!='-') {
@@ -246,7 +242,7 @@ int FloatPoint::restoreAutonmata() {
 
 int main() {
 	std::string _input_str = "12.3*********klj12.2e2jj778";
-	_input_str = "-23.3E+234asdfasdfasdf928,234.9;asdfwer7n3e3.";
+	_input_str = "-23.3E+234asdfasdfasdf928,234.9;asdfwer7n3e323asd34";
 	FloatPoint _float_point(_input_str);
 	std::string token;
 	while (_float_point.getNextToken(token) != -1) {
