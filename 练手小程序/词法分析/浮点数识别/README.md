@@ -1,12 +1,15 @@
 <!--
  * @Author: baisichen
  * @Date: 2021-05-19 20:41:10
- * @LastEditTime: 2021-05-20 21:35:37
+ * @LastEditTime: 2021-05-21 16:40:23
  * @LastEditors: baisichen
  * @Description: 
 -->
 # 词法分析-浮点数识别
 > 参考：http://www.cppblog.com/woaidongmao/archive/2009/09/25/97245.aspx
+> 
+> 优秀实践：https://github.com/ZYBaisichen/LeetCodeBsc/tree/main/%E5%89%91%E6%8C%87offer/20.%E8%A1%A8%E7%A4%BA%E6%95%B0%E5%80%BC%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2
+
 # 总体设计
 
 ## 输入
